@@ -3,6 +3,14 @@
 세미콜론 동아리 홈페이지의 Supabase 데이터베이스 저장소.
 스키마 변경은 반드시 `supabase/migrations/`의 SQL 마이그레이션으로 관리한다.
 
+## 설정
+
+클론 후 최초 1회:
+
+```
+npm install
+```
+
 ## 명령어
 
 - `npx supabase migration new <name>` — 새 마이그레이션 파일 생성
