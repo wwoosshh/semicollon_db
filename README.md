@@ -32,3 +32,22 @@ npm install
 모든 테이블은 RLS가 켜져 있고 정책이 없다 (deny-all).
 데이터 접근은 전부 백엔드(NestJS, 직접 Postgres 연결)를 통해서만 이루어진다.
 anon key로는 어떤 테이블도 읽을 수 없다.
+
+## 최초 관리자 계정 만들기
+
+1. Dashboard > Authentication > Users > **Add user** > 이메일/비밀번호 입력해 생성
+2. 생성된 유저의 UUID를 복사
+3. Dashboard > SQL Editor에서 실행:
+
+```sql
+insert into public.profiles (id, name, generation, role)
+values ('<복사한 UUID>', '관리자이름', 1, 'admin');
+```
+
+## 초대 코드 변경
+
+Dashboard > SQL Editor:
+
+```sql
+update public.settings set value = '"새코드"'::jsonb where key = 'invite_code';
+```
