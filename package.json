@@ -1,0 +1,15 @@
+{
+  "name": "db",
+  "version": "1.0.0",
+  "description": "세미콜론 동아리 홈페이지의 Supabase 데이터베이스 저장소. 스키마 변경은 반드시 `supabase/migrations/`의 SQL 마이그레이션으로 관리한다.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "supabase": "^2.105.0"
+  }
+}

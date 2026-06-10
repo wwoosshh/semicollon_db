@@ -1,0 +1,7 @@
+node_modules/
+.env
+.env.*
+!.env.example
+# supabase CLI 로컬 산출물
+supabase/.temp/
+supabase/.branches/
