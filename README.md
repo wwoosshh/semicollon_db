@@ -22,10 +22,24 @@ npm install
 | 테이블 | 용도 |
 |---|---|
 | `profiles` | 부원 프로필 (auth.users와 1:1, 역할: admin/member) |
-| `posts` | 통합 게시판 (공지/블로그, 공개범위: public/member) |
-| `activities` | 활동 아카이브 (프로젝트/스터디/행사) |
+| `posts` | 통합 게시판 (공지/블로그, 공개범위: public/member, 이미지 여러 장) |
+| `comments` | 게시글 댓글 (작성자 탈퇴 시 댓글 보존 — author_id set null) |
+| `activities` | 활동 아카이브 (프로젝트/스터디/행사, 썸네일 + 갤러리 image_urls) |
+| `events` | 일정 (캘린더 — 제목/설명/장소/시작·종료 시각) |
 | `applications` | 신입 지원서 |
-| `settings` | 사이트 설정 (모집 기간, 초대 코드) |
+| `settings` | 키-값 사이트 설정 (아래 표) |
+
+### settings 키
+
+| 키 | 값 형태 |
+|---|---|
+| `recruit_period` | `{"start": ISO\|null, "end": ISO\|null}` — null이면 모집 중 아님 |
+| `invite_code` | 부원 가입 초대 코드 (문자열) |
+| `about_history` | 연혁 `[{year, title}]` |
+| `about_staff` | 운영진 `[{name, role, note?}]` |
+| `about_faq` | FAQ `[{q, a}]` |
+
+스토리지: `images` 버킷 (공개 읽기, 쓰기는 백엔드 service_role 전용, 5MB·이미지 MIME 제한)
 
 ## 보안 모델
 
